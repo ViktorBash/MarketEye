@@ -1,4 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>Home </h1>
+    <h1>Home </h1>
+    {% load static %}
+    <div class="test-class">
+        <h1>Hi</h1>
+        <h1>hi</h1>
+
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Submit">
+        </form>
+    </div>
 {% endblock %}
