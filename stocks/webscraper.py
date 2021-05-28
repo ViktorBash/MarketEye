@@ -95,3 +95,4 @@ if __name__ == "__main__":
     # Example call
     api_instance = TwitterAPI("TSLA", os.environ.get("BEARER_TOKEN"), 3)
     api_instance.start_scraping()
+    print(api_instance.text_list)
