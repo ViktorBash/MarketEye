@@ -2,12 +2,14 @@ import flair
 import re
 
 
-def get_sentiment(text: str):
-    """Given a cleaned string, sentiment will be returned in the form of a Sentence class"""
-    sentiment_model = flair.models.TextClassifier.load("en-sentiment")
-    sentence = flair.data.Sentence(text)
-    sentiment_model.predict(sentence)
-    return sentence
+class SentimentClass:
+    def __init__(self):
+        self.text_classification_model = flair.models.TextClassifier.load("en-sentiment")
+
+    def get_sentiment(self, text: str):
+        sentence_model = flair.data.Sentence(text)
+        self.text_classification_model.predict(sentence_model)
+        return sentence_model
 
 
 def clean_string(text: str):
@@ -23,7 +25,5 @@ def clean_string(text: str):
 
 if __name__ == "__main__":
     pass
-    # sentiment_model = get_sentiment("Hello, how are you?")
-    # sentiment_model = sentiment_model.labels[0].score
-    # print(type(sentiment_model))
-    # print(sentiment_model)
+    new_class = SentimentClass()
+    new_class.get_sentiment("HELLO, how are you")
