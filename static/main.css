@@ -1,8 +1,90 @@
-h1 {
-  color: red;
+body {
+  margin: 0;
+  padding: 0;
 }
 
-.test-class {
-  background-image: url("/static/assets/wave.svg");
-  min-width: 100vh;
+.nav-bar {
+  background-color: black;
+  height: 3em;
+}
+
+.nav-bar img {
+  height: 2.25em;
+  width: auto;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.nav-bar span {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.form-container {
+  margin-top: 2.5em;
+  background-color: #F9F9F9;
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+
+.form-box {
+  text-align: center;
+}
+
+.form-input {
+  text-align: left;
+  color: #6B7280;
+  font-family: "Inter", sans-serif;
+  font-size: 1.75em;
+  margin-bottom: 0.2em;
+}
+
+.form-legend {
+  color: #6B7280;
+  font-family: "Inter", sans-serif;
+  font-size: 1em;
+  margin-bottom: 0.2em;
+}
+
+.landing-title {
+  text-align: center;
+  color: #6C63FF;
+  font-family: "Inter", sans-serif;
+  font-size: 2.95em;
+}
+
+.landing-subtitle {
+  text-align: center;
+  color: #6C63FF;
+  font-family: "Inter", sans-serif;
+  font-size: 1.5em;
+}
+
+.landing-text {
+  text-align: center;
+  color: #6B7280;
+  font-family: "Inter", sans-serif;
+  font-size: 1.5em;
+  font-weight: 400;
+}
+
+.landing-image {
+  height: 30em;
+  width: auto;
+}
+
+.grid-container {
+  margin-left: 8%;
+  margin-right: 8%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas: "text image";
+}
+
+.bottom-section {
+  background-color: #1ed760;
+  min-height: 2em;
 }

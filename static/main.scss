@@ -1,9 +1,14 @@
 // Use em instead of px
 
+// Color Variables
+$primary-purple: #6C63FF;
+$primary-grey: #6B7280;
+
 body {
     margin: 0;
     padding: 0;
 }
+
 .nav-bar {
     background-color: black;
     height: 3em;
@@ -20,4 +25,92 @@ body {
         height: 100%;
         vertical-align: middle;
     }
+}
+
+.form-container {
+    margin-top: 2.5em;
+    background-color: #F9F9F9;
+    padding-top: 2em;
+    padding-bottom: 2em;
+
+}
+
+.form-box {
+    text-align: center;
+
+}
+
+.form-input {
+    text-align: left;
+    color: $primary-grey;
+    font-family: "Inter", sans-serif;
+    font-size: 1.75em;
+    margin-bottom: 0.2em;
+
+}
+
+.form-legend {
+    color: $primary-grey;
+    font-family: "Inter", sans-serif;
+    font-size: 1em;
+    margin-bottom: 0.2em;
+}
+
+.form-button {
+    
+}
+
+.landing-title {
+    text-align: center;
+    color: $primary-purple;
+    font-family: "Inter", sans-serif;
+    font-size: 2.95em;
+}
+
+.landing-subtitle {
+    text-align: center;
+    color: $primary-purple;
+    font-family: "Inter", sans-serif;
+    font-size: 1.5em;
+}
+
+.landing-text {
+    text-align: center;
+    color: $primary-grey;
+    font-family: "Inter", sans-serif;
+    font-size: 1.5em;
+    font-weight: 400;
+}
+
+.landing-image {
+    height: 30em;
+    width: auto;
+}
+
+.grid-container {
+    margin-left: 8%;
+    margin-right: 8%;
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+        "text image";
+
+    // .left-text {
+    //     grid-column-start: 1;
+    //     grid-column-end: 2;
+    //     grid-row-start: 1;
+    //     grid-row-end: 2;
+    // }
+
+    // .right-images {
+    //     grid-column-start: 2;
+    // }
+}
+
+.bottom-section {
+    background-color: rgb(30, 215, 96);
+    min-height: 2em;
 }
