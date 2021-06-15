@@ -1,9 +1,23 @@
-h1 {
-    color: red;
-}
+// Use em instead of px
 
-.test-class {
-    background-image: url("/static/assets/wave.svg");
-    min-width: 100vh;
+body {
+    margin: 0;
+    padding: 0;
 }
+.nav-bar {
+    background-color: black;
+    height: 3em;
 
+    img {
+        height: 2.25em;
+        width: auto;
+        vertical-align: middle;
+        display: inline-block;
+    }
+
+    span {
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+    }
+}
