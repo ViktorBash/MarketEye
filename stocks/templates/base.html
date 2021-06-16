@@ -1,9 +1,7 @@
 <!doctype html>
-
 <html lang="en">
 <head>
   <meta charset="utf-8">
-
   <title>{% block title %}MarketEye{% endblock %}</title>
   <meta name="description" content="Market Eye">
   <meta name="author" content="Viktor Basharkevich">
@@ -11,25 +9,23 @@
   <link rel="stylesheet" type="text/css" href="{% static "main.css" %}" />
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-
-
-
 </head>
+
+<body>
 <div class="main-container">
 <div class="nav-bar">
-<span></span><img src="{% static "assets/white_logo.png" %}"/>
+<span></span><a href=""><img src="{% static "assets/white_logo.png" %}"/></a>
 </div>
-
 
 {% block content %} {% endblock %}
 </div>
 
 <!-- Footer -->
 <div class="footer-bar">
-  <img src="{% static "assets/white_logo.png" %}"/>
+  <a href=""><img src="{% static "assets/white_logo.png" %}"/></a>
   <h2>www.marketeye.com</h2>
   <p>Copyright 2021 @ Viktor Basharkevich</p>
 </div>
 
-<body>
+</body>
 </html>
