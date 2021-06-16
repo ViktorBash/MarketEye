@@ -1,9 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Stock
 from .forms import StockSearchForm
-from .webscraper import TwitterAPI
 from .stock_information import get_latest_stock_price
-from .machine_learning import get_sentiment, clean_string
 import os
 import csv
 
@@ -39,60 +37,55 @@ def stock_sticker(request, ticker: str):
         return redirect("home")
 
     # All checks are passed by this point 🚀 🚀 🚀
-    print("check 1")
+    latest_tweets_pos = 0
+    latest_tweets_neg = 0
+    latest_tweets_sentiment = ""
 
-    stock = Stock.objects.get_or_create(ticker=ticker)
+    with open(f"stocks/data/stock_name_csv/{ticker}_latest.csv", "r") as csv_file:
+        csv_reader = csv.DictReader(csv_file, fieldnames=['Tweet', 'Sentiment', 'Confidence'])
+        for line in csv_reader:
+            if line['Sentiment'] == "NEGATIVE":
+                latest_tweets_neg += 1
+            else:
+                latest_tweets_pos += 1
+    csv_file.close()
 
-    # Get a list of tweets that mention the stock
-    twitter_api_instance = TwitterAPI(ticker, os.environ.get("BEARER_TOKEN"), 5)  # Bearer token = Twitter API Key
-    twitter_api_instance.start_scraping()
-    text_array = twitter_api_instance.text_list
+    if latest_tweets_pos > latest_tweets_neg:
+        latest_tweets_sentiment = "Positive"
+    elif latest_tweets_neg > latest_tweets_pos:
+        latest_tweets_sentiment = "Negative"
+    else:
+        latest_tweets_sentiment = "Neutral"
 
-    # Clean all the strings in the array
-    for i in range(len(text_array)):
-        text_array[i] = clean_string(text_array[i])
+    top_tweets_pos = 0
+    top_tweets_neg = 0
+    top_tweets_sentiment = ""
 
-    print("check 2")
+    with open(f"stocks/data/stock_name_csv/{ticker}_top.csv", "r") as csv_file:
+        csv_reader = csv.DictReader(csv_file, fieldnames=['Tweet', 'Sentiment', 'Confidence'])
+        for line in csv_reader:
+            if line['Sentiment'] == "NEGATIVE":
+                top_tweets_neg += 1
+            else:
+                top_tweets_pos += 1
+    csv_file.close()
 
-    # Number of pos/neg tweets
-    total_negative = 0
-    total_positive = 0
-
-    # Creating a list that holds all of the analysis, array is filled with Sentence classes
-    sentiment_array = []
-    for i in range(len(text_array)):
-        sentiment = get_sentiment(text_array[i])
-        if sentiment.labels[0].value == "POSITIVE":
-            total_positive += 1
-        else:
-            total_negative += 1
-        sentiment_array.append(sentiment)
-
-    print("check 3")
-    # TODO: Redo writing to CSV
-
-    # # Create/Write over a CSV file
-    # with open(f"stocks/stock_name_csv/{ticker}.csv", "w", newline="", encoding="utf-8") as csv_file:
-    #     csv_writer = csv.writer(csv_file)
-    #     for item in array:
-    #         sentiment_model = get_sentiment(item)
-    #         csv_writer.writerow([item, sentiment_model.labels[0].value, sentiment_model.labels[0].score])
-    #         total += sentiment_model.labels[0].score
-    #         counter += 1
-    # csv_file.close()
-
-    emotion = "positive"
-    if total_negative > total_positive:
-        emotion = "negative"
-    elif total_negative == total_positive:
-        emotion = "neutral"
-
-    print("check 4")
+    if top_tweets_pos > top_tweets_neg:
+        top_tweets_sentiment = "Positive"
+    elif top_tweets_neg > top_tweets_pos:
+        top_tweets_sentiment = "Negative"
+    else:
+        top_tweets_sentiment = "Neutral"
 
     stock_price = get_latest_stock_price(ticker)
 
     return render(request, "specific_stock.html", context={
         "ticker": ticker,
         "price": stock_price,
-        "sentiment": emotion,
+        "top_pos": top_tweets_pos,
+        "top_neg": top_tweets_neg,
+        "top_sentiment": top_tweets_sentiment,
+        "latest_pos": latest_tweets_pos,
+        "latest_neg": latest_tweets_neg,
+        "latest_sentiment": latest_tweets_sentiment,
     })
