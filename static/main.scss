@@ -177,3 +177,41 @@ body {
     }
 
 }
+
+.stock-title {
+    // text-align: left;
+    color: $primary-purple;
+    font-family: "Inter", sans-serif;
+    font-size: 2.5em;
+    margin-right: 8%;
+    margin-left: 8%;
+}
+
+.stock-container {
+    border: 0.1em solid white;
+    margin-bottom: 2em;
+    margin-right: 8%;
+    margin-left: 8%;
+
+    -moz-box-shadow:    2px 2px 3px 3px #ccc;
+    -webkit-box-shadow: 2px 2px 3px 3px #ccc;
+    box-shadow:         2px 2px 3px 3px #ccc;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+        "popular recent";
+}
+
+.top-tweets {
+    padding-left: 2em;
+}
+
+.tweet-info {
+        color: black;
+        font-family: "Inter", sans-serif;
+        font-size: 1.5em;
+        font-weight: 400;
+}
