@@ -9,6 +9,11 @@ body {
     padding: 0;
 }
 
+.main-container {
+    min-height: 81vh;
+    overflow: hidden;
+}
+
 .nav-bar {
     background-color: black;
     height: 3em;
@@ -72,7 +77,7 @@ body {
 
     color: white;
     font-family: "Inter", sans-serif;
-    font-size: 1.75em;
+    font-size: 1.5em;
     font-weight: 700;
 
     border: none;
@@ -141,4 +146,34 @@ body {
 .bottom-section {
     background-color: rgb(30, 215, 96);
     min-height: 2em;
+}
+
+.footer-bar {
+    background-color: black;
+    height: 10em;
+    padding-bottom: 1.75em;
+
+
+    img {
+        height: 2.25em;
+        padding-top: 1.5em;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    h2 {
+        color: white;
+        font-family: "Inter", sans-serif;
+        font-size: 1.5em;
+        text-align: center;
+        font-weight: 400;
+        
+    }
+    p {
+        color: white;
+        font-family: "Inter", sans-serif;
+        font-size: 1.05em;
+        text-align: center;
+    }
+
 }
