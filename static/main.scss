@@ -31,7 +31,7 @@ body {
     margin-top: 2.5em;
     background-color: #F9F9F9;
     padding-top: 2em;
-    padding-bottom: 2em;
+    padding-bottom: 1.5em;
 
 }
 
@@ -45,7 +45,13 @@ body {
     color: $primary-grey;
     font-family: "Inter", sans-serif;
     font-size: 1.75em;
-    margin-bottom: 0.2em;
+    margin-bottom: 0.5em;
+
+    // Drop Shadow
+    -moz-box-shadow:    2px 2px 3px 3px #ccc;
+    -webkit-box-shadow: 2px 2px 3px 3px #ccc;
+    box-shadow:         2px 2px 3px 3px #ccc;
+    border: none;
 
 }
 
@@ -57,7 +63,29 @@ body {
 }
 
 .form-button {
+    background-color: #2F2E41;
+    padding-top: .25em;
+    padding-bottom: .25em;
+    padding-right: .5em;
+    padding-left: .5em;
+    margin-top: 0.3em;
+
+    color: white;
+    font-family: "Inter", sans-serif;
+    font-size: 1.75em;
+    font-weight: 700;
+
+    border: none;
+    cursor: pointer;
+    border-radius: 0.4em;
     
+    
+}
+
+.form-button:hover {
+    -moz-box-shadow:    2px 2px 3px 3px #ccc;
+    -webkit-box-shadow: 2px 2px 3px 3px #ccc;
+    box-shadow:         2px 2px 3px 3px #ccc;
 }
 
 .landing-title {

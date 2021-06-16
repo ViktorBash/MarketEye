@@ -1,15 +1,37 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>Home </h1>
-    {% load static %}
-    <div class="test-class">
-        <h1>Hi</h1>
-        <h1>hi</h1>
+{% load static %}
 
-        <form action="" method="post">
-            {% csrf_token %}
-            {{ form }}
-            <input type="submit" value="Submit">
-        </form>
+<div class="form-container">
+    <form class="form-box" action="" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <legend class="form-legend"><i>Search for a stock in the S&P 500</i></legend>
+        <input class="form-button" type="submit" value="Search">
+    </form>
+</div>
+
+<h1 class="landing-title">Get Market Sentiment <em>Fast</em></h1>
+
+<div class="grid-container">
+    <div class="left-text">
+        <h2 class="landing-subtitle">More Transparency.</h2>
+        <p class="landing-text">MarketEye makes it easy to see the public perception of stocks. Stop trading in the
+            dark,
+            get more data, <b>for
+                free.</b></p>
+        <!-- <button class="landing-button">
+            <p>See How</p>
+        </button> -->
     </div>
+    <div class="right-images">
+        <img class="landing-image" src="{% static "assets/vector_1.svg" %}" />
+    </div>
+</div>
+
+<div class="bottom-section">
+    <img class="flow-image" src="{% static "assets/wave.svg" %}" />
+</div>
+
+
 {% endblock %}

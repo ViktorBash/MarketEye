@@ -2,5 +2,11 @@
 {% block content %}
     <h1>Stock: {{ ticker }} </h1>
     <h1>Price: {{ price }}</h1>
-    <h1>Average Sentiment: {{ sentiment }}</h1>
+    <h1>Sentiment From Top Tweets: {{ top_sentiment }}</h1>
+    <h1># Of Top Tweets That Are Positive: {{ top_pos }}</h1>
+    <h1># Of Top Tweets That Are Negative: {{ top_neg }}</h1>
+    <br>
+    <h1>Sentiment From Latest Tweets: {{ latest_sentiment }}</h1>
+    <h1># Of Latest Tweets That Are Positive: {{ latest_pos }}</h1>
+    <h1># Of Latest Tweets That Are Negative: {{ latest_neg }}</h1>
 {% endblock %}

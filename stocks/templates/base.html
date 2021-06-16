@@ -8,14 +8,19 @@
   <meta name="description" content="Market Eye">
   <meta name="author" content="Viktor Basharkevich">
   {% load static %}
-  <link rel="stylesheet" type="text/css" href="{% static "main.scss" %}"/>
+  <link rel="stylesheet" type="text/css" href="{% static "main.css" %}" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
 
 
 </head>
-<body>
-<nav>
-  
-</nav>
+
+<div class="nav-bar">
+<span></span><img src="{% static "assets/white_logo.png" %}"/>
+
+</div>
+
 
 {% block content %} {% endblock %}
 <body>
