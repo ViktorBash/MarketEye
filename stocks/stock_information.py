@@ -15,6 +15,4 @@ def get_spy_list():
 
 
 if __name__ == "__main__":
-    # Example call
-    # print(get_latest_stock_price("TSLA"))
     get_spy_list()

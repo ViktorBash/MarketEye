@@ -35,6 +35,7 @@ class StockTask:
                 tweets[i] = clean_string(tweets[i])
             self.write_to_csv(stock, tweets, "_top")
             print(f"Wrote ${stock} to top & latest")
+            time.sleep(15)
 
     def write_to_csv(self, ticker: str, tweets, extra_title=""):
         with open(f"data/stock_name_csv/{ticker.upper()}{extra_title}.csv", "w", newline="", encoding="utf-8") as csv_file:

@@ -27,6 +27,6 @@ def webscrape(ticker: str, top_results=False):
 
 
 if __name__ == "__main__":
-    test = webscrape("MMM")
+    test = webscrape("IFF")
     print(test)
 

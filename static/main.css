@@ -3,6 +3,11 @@ body {
   padding: 0;
 }
 
+.main-container {
+  min-height: 81vh;
+  overflow: hidden;
+}
+
 .nav-bar {
   background-color: black;
   height: 3em;
@@ -25,7 +30,7 @@ body {
   margin-top: 2.5em;
   background-color: #F9F9F9;
   padding-top: 2em;
-  padding-bottom: 2em;
+  padding-bottom: 1.5em;
 }
 
 .form-box {
@@ -37,7 +42,9 @@ body {
   color: #6B7280;
   font-family: "Inter", sans-serif;
   font-size: 1.75em;
-  margin-bottom: 0.2em;
+  margin-bottom: 0.5em;
+  box-shadow: 2px 2px 3px 3px #ccc;
+  border: none;
 }
 
 .form-legend {
@@ -45,6 +52,26 @@ body {
   font-family: "Inter", sans-serif;
   font-size: 1em;
   margin-bottom: 0.2em;
+}
+
+.form-button {
+  background-color: #2F2E41;
+  padding-top: .25em;
+  padding-bottom: .25em;
+  padding-right: .5em;
+  padding-left: .5em;
+  margin-top: 0.3em;
+  color: white;
+  font-family: "Inter", sans-serif;
+  font-size: 1.5em;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.4em;
+}
+
+.form-button:hover {
+  box-shadow: 2px 2px 3px 3px #ccc;
 }
 
 .landing-title {
@@ -87,4 +114,65 @@ body {
 .bottom-section {
   background-color: #1ed760;
   min-height: 2em;
+}
+
+.footer-bar {
+  background-color: black;
+  height: 10em;
+  padding-bottom: 1.75em;
+}
+
+.footer-bar img {
+  height: 2.25em;
+  padding-top: 1.5em;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer-bar h2 {
+  color: white;
+  font-family: "Inter", sans-serif;
+  font-size: 1.5em;
+  text-align: center;
+  font-weight: 400;
+}
+
+.footer-bar p {
+  color: white;
+  font-family: "Inter", sans-serif;
+  font-size: 1.05em;
+  text-align: center;
+}
+
+.stock-title {
+  color: #6C63FF;
+  font-family: "Inter", sans-serif;
+  font-size: 2.5em;
+  margin-right: 8%;
+  margin-left: 8%;
+}
+
+.stock-container {
+  border: 0.1em solid white;
+  margin-bottom: 2em;
+  margin-right: 8%;
+  margin-left: 8%;
+  box-shadow: 2px 2px 3px 3px #ccc;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas: "popular recent";
+}
+
+.top-tweets {
+  padding-left: 2em;
+}
+
+.tweet-info {
+  color: black;
+  font-family: "Inter", sans-serif;
+  font-size: 1.5em;
+  font-weight: 400;
 }
