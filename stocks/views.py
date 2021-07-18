@@ -4,7 +4,7 @@ from .forms import StockSearchForm
 from .stock_information import get_latest_stock_price
 import os
 import csv
-
+from django.conf import settings
 
 def home(request):
     """Home page view that handles what users see when they visit the website. Home page contains a form to search
@@ -26,7 +26,7 @@ def stock_sticker(request, ticker: str):
     """
     # Check if ticker is in stock list (S&P 500 is the list at the moment)
     pass_check_1 = False
-    with open("stocks/data/spy_list.csv", "r") as csv_file:
+    with open(os.path.join(settings.BASE_DIR, "stocks/data/spy_list.csv"), "r") as csv_file:
         csv_reader = csv.DictReader(csv_file)
         for line in csv_reader:
             if line['Symbol'] == ticker:
@@ -41,7 +41,7 @@ def stock_sticker(request, ticker: str):
     latest_tweets_neg = 0
     latest_tweets_sentiment = ""
 
-    with open(f"stocks/data/stock_name_csv/{ticker}_latest.csv", "r") as csv_file:
+    with open(os.path.join(settings.BASE_DIR, f"stocks/data/stock_name_csv/{ticker}_latest.csv"), "r") as csv_file:
         csv_reader = csv.DictReader(csv_file, fieldnames=['Tweet', 'Sentiment', 'Confidence'])
         for line in csv_reader:
             if line['Sentiment'] == "NEGATIVE":
@@ -61,7 +61,7 @@ def stock_sticker(request, ticker: str):
     top_tweets_neg = 0
     top_tweets_sentiment = ""
 
-    with open(f"stocks/data/stock_name_csv/{ticker}_top.csv", "r") as csv_file:
+    with open(os.path.join(settings.BASE_DIR, f"stocks/data/stock_name_csv/{ticker}_top.csv"), "r") as csv_file:
         csv_reader = csv.DictReader(csv_file, fieldnames=['Tweet', 'Sentiment', 'Confidence'])
         for line in csv_reader:
             if line['Sentiment'] == "NEGATIVE":
