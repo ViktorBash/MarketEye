@@ -26,7 +26,7 @@ def stock_sticker(request, ticker: str):
     """
     # Check if ticker is in stock list (S&P 500 is the list at the moment)
     pass_check_1 = False
-    with open(os.path.join(settings.BASE_DIR, "stocks/data/spy_list.csv"), "r") as csv_file:
+    with open(os.path.join(settings.BASE_DIR, "stocks/data/spy_list.csv"), "r", encoding="utf-8") as csv_file:
         csv_reader = csv.DictReader(csv_file)
         for line in csv_reader:
             if line['Symbol'] == ticker:

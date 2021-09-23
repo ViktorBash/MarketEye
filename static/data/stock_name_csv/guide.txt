@@ -1,0 +1,5 @@
+CSV Categories:
+text, rating, probability
+
+Example:
+"Wow, TSLA is so great!", "POSITIVE", 0.86
