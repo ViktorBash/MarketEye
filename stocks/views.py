@@ -36,19 +36,13 @@ def stock_sticker(request, ticker: str):
     if not pass_check_1:
         return redirect("home")
 
-    # All checks are passed by this point 🚀 🚀 🚀
-    latest_tweets_pos = 0
-    latest_tweets_neg = 0
-    latest_tweets_sentiment = ""
+    stock_object = Stock.objects.get(ticker=ticker)
+    latest_tweets_pos = stock_object.latest_tweets_pos
+    latest_tweets_neg = stock_object.latest_tweets_neg
+    top_tweets_pos = stock_object.top_tweets_pos
+    top_tweets_neg = stock_object.top_tweets_neg
 
-    with open(os.path.join(settings.BASE_DIR, f"stocks/data/stock_name_csv/{ticker}_latest.csv"), "r") as csv_file:
-        csv_reader = csv.DictReader(csv_file, fieldnames=['Tweet', 'Sentiment', 'Confidence'])
-        for line in csv_reader:
-            if line['Sentiment'] == "NEGATIVE":
-                latest_tweets_neg += 1
-            else:
-                latest_tweets_pos += 1
-    csv_file.close()
+    latest_tweets_sentiment = ""
 
     if latest_tweets_pos > latest_tweets_neg:
         latest_tweets_sentiment = "Positive"
@@ -57,18 +51,7 @@ def stock_sticker(request, ticker: str):
     else:
         latest_tweets_sentiment = "Neutral"
 
-    top_tweets_pos = 0
-    top_tweets_neg = 0
     top_tweets_sentiment = ""
-
-    with open(os.path.join(settings.BASE_DIR, f"stocks/data/stock_name_csv/{ticker}_top.csv"), "r") as csv_file:
-        csv_reader = csv.DictReader(csv_file, fieldnames=['Tweet', 'Sentiment', 'Confidence'])
-        for line in csv_reader:
-            if line['Sentiment'] == "NEGATIVE":
-                top_tweets_neg += 1
-            else:
-                top_tweets_pos += 1
-    csv_file.close()
 
     if top_tweets_pos > top_tweets_neg:
         top_tweets_sentiment = "Positive"
