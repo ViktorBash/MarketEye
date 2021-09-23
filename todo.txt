@@ -1,0 +1,15 @@
+To Do:
+-register "marketeye.app" 
+
+-push to production (choose a provider thoughtfully, do I want to learn more, master more, or just do a quick deploy?)
+
+-figure out the scheduling to get new data (should just be a cron job or something, if it is a cron job make sure there is no infinite loop)
+
+
+Later todo (after already prod):
+-Make footer/header icons links
+-Make more text/fix awkard emptiness after the "MarketEye makes it easy to see..." text
+-add some SVGs that will scale well (similar to spotify) OR, look up a wave tutorial and add a wave
+
+Inspiration:
+https://towardsdatascience.com/sentiment-analysis-for-stock-price-prediction-in-python-bed40c65d178

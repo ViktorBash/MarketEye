@@ -1,5 +1,4 @@
 from requests_html import HTMLSession
-import gc
 
 
 def webscrape(ticker: str, top_results=False):
@@ -10,7 +9,7 @@ def webscrape(ticker: str, top_results=False):
 
     r = session.get(url)
     r.html.render(sleep=1, keep_page=True, scrolldown=1)
-    session.close()
+    print(r.content)
 
     result = []
     tweets = r.html.find("article")  # A tweet object currently is the whole tweet textbox, including username/handle
@@ -23,10 +22,11 @@ def webscrape(ticker: str, top_results=False):
                 # irrelevant
                 result.append(div.text)
     # Returns a list of <str> tweets
+    session.close()
     return result
 
 
 if __name__ == "__main__":
-    test = webscrape("IFF")
+    test = webscrape("MMM", top_results=False)
     print(test)
 

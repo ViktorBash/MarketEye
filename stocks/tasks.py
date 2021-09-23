@@ -28,6 +28,7 @@ class StockTask:
             for i in range(len(tweets)):
                 tweets[i] = clean_string(tweets[i])
             self.write_to_csv(stock, tweets, "_latest")
+            time.sleep(15)
 
             # Get the top tweets
             tweets = webscrape(stock, top_results=True)
@@ -38,10 +39,12 @@ class StockTask:
             time.sleep(15)
 
     def write_to_csv(self, ticker: str, tweets, extra_title=""):
-        with open(f"data/stock_name_csv/{ticker.upper()}{extra_title}.csv", "w", newline="", encoding="utf-8") as csv_file:
+        with open(f"data/stock_name_csv/{ticker.upper()}{extra_title}.csv", "w", newline="", encoding="ascii") as csv_file:
             csv_writer = csv.writer(csv_file)
+            print(f"INFO: Len: {len(tweets)}, title: {extra_title}")
             for tweet in tweets:
                 sentiment = self.sentiment_class.get_sentiment(tweet)
+                tweet = tweet.encode("ascii", "ignore")
                 if len(sentiment.labels) > 0:  # If the Sentence model is empty/has no prediction, it will not be added
                     csv_writer.writerow([tweet, sentiment.labels[0].value, sentiment.labels[0].score])
         csv_file.close()
@@ -52,5 +55,5 @@ if __name__ == "__main__":
     while True:
         new_task.start()
         print("FINISHED, sleeping then restarting")
-        # break
-        time.sleep(2 * 60 * 60)
+        break
+        # time.sleep(2 * 60 * 60)
