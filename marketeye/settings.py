@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
+import json
+
+with open("/etc/config.json") as config_file:
+    config = json.load(config_file)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -21,12 +25,12 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '66c!3bx#&jnc(d@ndpcp&6045v(s7x!ftbnwmnsc09&45bjk^@'
+SECRET_KEY = config["SECRET_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["django-env.eba-mtjfmayy.us-west-2.elasticbeanstalk.com"]
+ALLOWED_HOSTS = ["34.206.54.108", "localhost", "127.0.0.1"]
 
 
 # Application definition
