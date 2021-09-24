@@ -12,14 +12,12 @@ body {
   background-color: black;
   height: 3em;
 }
-
 .nav-bar img {
   height: 2.25em;
   width: auto;
   vertical-align: middle;
   display: inline-block;
 }
-
 .nav-bar span {
   display: inline-block;
   height: 100%;
@@ -43,6 +41,8 @@ body {
   font-family: "Inter", sans-serif;
   font-size: 1.75em;
   margin-bottom: 0.5em;
+  -moz-box-shadow: 2px 2px 3px 3px #ccc;
+  -webkit-box-shadow: 2px 2px 3px 3px #ccc;
   box-shadow: 2px 2px 3px 3px #ccc;
   border: none;
 }
@@ -56,10 +56,10 @@ body {
 
 .form-button {
   background-color: #2F2E41;
-  padding-top: .25em;
-  padding-bottom: .25em;
-  padding-right: .5em;
-  padding-left: .5em;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
   margin-top: 0.3em;
   color: white;
   font-family: "Inter", sans-serif;
@@ -71,6 +71,8 @@ body {
 }
 
 .form-button:hover {
+  -moz-box-shadow: 2px 2px 3px 3px #ccc;
+  -webkit-box-shadow: 2px 2px 3px 3px #ccc;
   box-shadow: 2px 2px 3px 3px #ccc;
 }
 
@@ -121,7 +123,6 @@ body {
   height: 10em;
   padding-bottom: 1.75em;
 }
-
 .footer-bar img {
   height: 2.25em;
   padding-top: 1.5em;
@@ -129,7 +130,6 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
-
 .footer-bar h2 {
   color: white;
   font-family: "Inter", sans-serif;
@@ -137,7 +137,6 @@ body {
   text-align: center;
   font-weight: 400;
 }
-
 .footer-bar p {
   color: white;
   font-family: "Inter", sans-serif;
@@ -158,6 +157,8 @@ body {
   margin-bottom: 2em;
   margin-right: 8%;
   margin-left: 8%;
+  -moz-box-shadow: 2px 2px 3px 3px #ccc;
+  -webkit-box-shadow: 2px 2px 3px 3px #ccc;
   box-shadow: 2px 2px 3px 3px #ccc;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -176,3 +177,15 @@ body {
   font-size: 1.5em;
   font-weight: 400;
 }
+
+.top-h2 {
+  color: white;
+  font-family: "Inter", sans-serif;
+  font-size: 1.5em;
+  text-align: center;
+  font-weight: 400;
+  margin-left: 2em;
+  margin-top: 0.375em;
+}
+
+/*# sourceMappingURL=main.css.map */
