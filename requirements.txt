@@ -66,7 +66,7 @@ torch==1.13.1
 tqdm==4.61.1
 transformers==4.6.1
 typing-extensions==3.10.0.0
-urllib3==1.25.11
+urllib3==1.26.5
 wcwidth==0.1.9
 wrapt==1.12.1
 yfinance==0.1.59
