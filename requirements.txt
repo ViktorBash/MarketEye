@@ -38,7 +38,7 @@ overrides==3.1.0
 packaging==20.9
 pandas==1.2.4
 pathspec==0.5.9
-Pillow==10.0.1
+Pillow==10.2.0
 pyparsing==2.4.7
 pypiwin32==223
 PySocks==1.7.1
